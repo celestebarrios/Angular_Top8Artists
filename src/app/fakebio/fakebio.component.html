@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Add Your Artist Info</h1>
+    <form [formGroup]="addBioForm" (ngSubmit)="getArtistData()">
+        <mat-form-field>
+            <mat-label>Artist Name</mat-label>
+            <input type="text" matInput placeholder="Artist Name" formControlName="artistName">
+        </mat-form-field> 
+        <br>
+        <mat-form-field>
+            <mat-label>Records</mat-label>
+            <input type="text" matInput placeholder="Records" formControlName="records">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>About Section</mat-label>
+            <input type="text" matInput placeholder="About" formControlName="about">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Concerts</mat-label>
+            <input type="text" matInput placeholder="Concerts" formControlName="concerts">
+        </mat-form-field>
+        <br>
+        <button type="submit" mat-raised-button>Submit</button>
+        <br>
+    </form>
+</div>

@@ -1,0 +1,54 @@
+<mat-sidenav-container>
+    <mat-sidenav #drawer class="sidenav"
+    fixedInViewport [attr.role] ="(isHandset$ | async) ? 'dialog': 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side' "
+    [opened] = "false"
+    >
+    <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item routerLink="/top5" (click)="drawer.close()">Top Artists</a>
+            <a mat-list-item routerLink="/fakebio" (click)="drawer.close()">Add Bio:)</a>
+
+            <a mat-list-item routerLink="/badboys" (click)="drawer.close()">Bad Boys</a>
+            <a mat-list-item routerLink="/d4l" (click)="drawer.close()">d4l</a>
+            <a mat-list-item routerLink="/minnesota" (click)="drawer.close()">Minnesota</a>
+            <a mat-list-item routerLink="/pinkfloyd" (click)="drawer.close()">Pink Floyd</a>
+            <a mat-list-item routerLink="/rings" (click)="drawer.close()">Rings</a>
+            <a mat-list-item routerLink="/wallflowers" (click)="drawer.close()">Wallflowers</a>
+            <a mat-list-item routerLink="/marimba" (click)="drawer.close()">Marimba</a>
+            
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!-- top full toobar -->
+        <mat-toolbar>
+            <button type="button" aria-label="Toggle sidenav" 
+            mat-icon-button (click)="drawer.toggle()" 
+            *ngIf="isHandset$ | async"
+            >
+            <mat-icon aria-label="Side nav toggle icon">Menu</mat-icon>
+            </button>
+
+            <span class = "logo" routerLink = "/">Angular Artist & Bio</span>
+            
+            <span class="fill-space"></span>
+
+            <div *ngIf = "! (isHandset$ | async)">
+
+                <a mat-button routerLink="/top5">Top Artists</a>
+                <a mat-button routerLink="/fakebio">Add Bio:)</a>
+
+                <a mat-button routerLink="/badboys">Bad Boys</a>
+                <a mat-button routerLink="/d4l">D4L</a>
+                <a mat-button routerLink="/minnesota">Minnesota</a>
+                <a mat-button routerLink="/pinkfloyd">Pink Floyd</a>
+                <a mat-button routerLink="/rings">Rings</a>
+                <a mat-button routerLink="/wallflowers">Wallflowers</a>
+                <a mat-button routerLink="/marimba">Marimba</a>
+                
+            </div>
+        </mat-toolbar>
+        <!-- angular transclusion -->
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>
